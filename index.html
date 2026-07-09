@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Grug — Tiny Pixel Stories for Better Days</title>
+  <meta name="description" content="AI가 매일 새로운 픽셀 친구를 만들어 주는 감성 마이크로 저널 앱. 하루 한 문장, 한 개의 픽셀 캐릭터, 그리고 작은 미소." id="metaDescription" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__logo" data-i18n-attr="aria-label:a11y.logoHome" aria-label="Pixel Grug home">
+        <span class="nav__logo-mark" aria-hidden="true">▚</span>
+        <span class="nav__logo-text">Pixel Grug</span>
+      </a>
+      <nav class="nav__links" id="navLinks" data-i18n-attr="aria-label:a11y.navMain" aria-label="주요 메뉴">
+        <a href="#about" data-i18n="nav.about">소개</a>
+        <a href="#features" data-i18n="nav.features">주요 기능</a>
+        <a href="#gallery" data-i18n="nav.gallery">픽셀 갤러리</a>
+        <a href="#audience" data-i18n="nav.audience">타겟</a>
+        <a href="#tech" data-i18n="nav.tech">기술 스택</a>
+        <a href="#vision" class="nav__cta" data-i18n="nav.cta">시작하기</a>
+      </nav>
+      <div class="nav__controls">
+        <div class="lang-switch" id="langSwitch" role="group" data-i18n-attr="aria-label:a11y.langSwitch" aria-label="언어 선택">
+          <button type="button" class="lang-switch__btn is-active" data-lang="ko" aria-current="true">KO</button>
+          <button type="button" class="lang-switch__btn" data-lang="en">EN</button>
+          <button type="button" class="lang-switch__btn" data-lang="ja">JA</button>
+        </div>
+        <button type="button" class="theme-toggle" id="themeToggle" data-i18n-attr="aria-label:a11y.themeToDark" aria-label="다크 모드로 전환">
+          <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">🌙</span>
+          <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀️</span>
+        </button>
+      </div>
+      <button class="nav__toggle" id="navToggle" data-i18n-attr="aria-label:a11y.menuOpen" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <span class="eyebrow" data-i18n="hero.eyebrow">Tiny Pixel Stories for Better Days</span>
+          <h1 class="hero__title" data-i18n="hero.title" data-i18n-html>매일 한 문장,<br />한 개의 <span class="accent">픽셀 친구</span>,<br />그리고 작은 미소.</h1>
+          <p class="hero__lead" data-i18n="hero.lead" data-i18n-html>
+            <strong>Pixel Grug</strong>는 AI가 생성하는 픽셀 아트 캐릭터와 함께
+            매일 새로운 짧은 메시지를 전달하는 감성 마이크로 저널 앱입니다.
+            하루 10초, 그것이면 충분합니다.
+          </p>
+          <div class="hero__actions">
+            <a href="#features" class="btn btn--primary" data-i18n="hero.btnFeatures">기능 둘러보기</a>
+            <a href="#gallery" class="btn btn--ghost" data-i18n="hero.btnGallery">픽셀 갤러리 보기</a>
+          </div>
+          <div class="hero__stats">
+            <div><strong data-i18n="hero.stat1Val">10초</strong><span data-i18n="hero.stat1Label">하루 루틴</span></div>
+            <div><strong data-i18n="hero.stat2Val">매일</strong><span data-i18n="hero.stat2Label">새로운 캐릭터</span></div>
+            <div><strong data-i18n="hero.stat3Val">∞</strong><span data-i18n="hero.stat3Label">AI 변주</span></div>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="daily-card" id="dailyCard">
+            <div class="daily-card__frame">
+              <img id="dailyImg" src="assets/hero-dragon.png" alt="오늘의 픽셀 친구, 꽃을 든 아기 용" />
+            </div>
+            <div class="daily-card__body">
+              <span class="daily-card__label">TODAY'S PIXEL</span>
+              <p class="daily-card__quote" id="dailyQuote">today small step become tomorrow mountain</p>
+              <p class="daily-card__name" id="dailyName">🐉 작은 용</p>
+            </div>
+            <button class="daily-card__shuffle" id="shuffleBtn" type="button">
+              <span aria-hidden="true">↻</span> <span data-i18n="hero.shuffle">다른 친구 만나기</span>
+            </button>
+          </div>
+          <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+          <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="about.eyebrow">앱 소개</span>
+          <h2 data-i18n="about.title">우리는 하루에도 수천 개의 정보를 소비합니다.</h2>
+          <p class="section__sub" data-i18n="about.sub">
+            하지만 하루를 바꾸는 것은 긴 글보다 짧은 한 문장, 그리고 작은 이미지일지도 모릅니다.
+          </p>
+        </div>
+        <div class="about__grid">
+          <blockquote class="about__quote reveal">
+            <p data-i18n="about.quote1">작은 용이 꽃을 들고 있을 수도 있고,</p>
+            <p data-i18n="about.quote2">모험을 떠나는 슬라임이 등장할 수도 있으며,</p>
+            <p data-i18n="about.quote3">작은 로봇이 오늘의 용기를 건네줄 수도 있습니다.</p>
+          </blockquote>
+          <div class="about__steps reveal">
+            <div class="step"><span class="step__num">01</span><p data-i18n="about.step1">오늘의 픽셀 친구를 만나고</p></div>
+            <div class="step"><span class="step__num">02</span><p data-i18n="about.step2">짧은 문장을 읽고</p></div>
+            <div class="step"><span class="step__num">03</span><p data-i18n="about.step3">오늘 하루를 시작합니다</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Core Concept ===== -->
+    <section class="section section--concept">
+      <div class="container concept reveal">
+        <span class="eyebrow eyebrow--light" data-i18n="concept.eyebrow">핵심 컨셉</span>
+        <h2 class="concept__title" data-i18n="concept.title">"AI가 매일 새로운 픽셀 친구를 만들어 준다."</h2>
+        <p class="concept__desc" data-i18n="concept.desc">매일의 메시지는 AI가 생성한 아래 요소 중 하나와 함께 제공됩니다.</p>
+        <ul class="concept__tags">
+          <li data-i18n="concept.tag1">캐릭터</li>
+          <li data-i18n="concept.tag2">아이템</li>
+          <li data-i18n="concept.tag3">작은 풍경</li>
+          <li data-i18n="concept.tag4">몬스터</li>
+          <li data-i18n="concept.tag5">식물</li>
+          <li data-i18n="concept.tag6">우주 생명체</li>
+        </ul>
+        <p class="concept__note" data-i18n="concept.note" data-i18n-html>모든 이미지는 <strong>Gemini Nano Banana Image API</strong>를 이용하여 실시간 또는 사전 생성됩니다.</p>
+      </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="features.eyebrow">주요 기능</span>
+          <h2 data-i18n="features.title">작지만 매일 다시 찾게 되는 경험</h2>
+        </div>
+        <div class="features">
+          <article class="feature reveal">
+            <span class="feature__index">01</span>
+            <h3>Daily Pixel</h3>
+            <p data-i18n="features.dailyPixelDesc">매일 하나의 픽셀아트가 생성됩니다. 작은 용, 선인장 친구, 구름 고래, 모험 개구리, 우주 감자처럼 귀여운 캐릭터가 등장합니다.</p>
+            <div class="feature__emojis">🐉 🌵 ☁️ 🐸 🚀</div>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__index">02</span>
+            <h3>Tiny Wisdom</h3>
+            <p data-i18n="features.tinyWisdomDesc">복잡한 자기계발 대신 하루의 작은 생각을 담은 매우 짧은 한 문장을 전합니다.</p>
+            <p class="feature__quote">"today small step become tomorrow mountain"</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__index">03</span>
+            <h3>Pixel Collection</h3>
+            <p data-i18n="features.pixelCollectionDesc">매일 생성된 캐릭터는 자동으로 컬렉션에 저장됩니다. "오늘 만난 친구들"이라는 감성 도감을 완성해 보세요.</p>
+            <div class="feature__collection">
+              <img src="assets/char-fox.png" data-i18n-attr="alt:features.altFox" alt="픽셀 여우" />
+              <img src="assets/char-slime.png" data-i18n-attr="alt:features.altSlime" alt="픽셀 슬라임" />
+              <img src="assets/char-spacecat.png" data-i18n-attr="alt:features.altSpacecat" alt="픽셀 우주 고양이" />
+              <span class="feature__collection-more">+128</span>
+            </div>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__index">04</span>
+            <h3>AI Variation</h3>
+            <p data-i18n="features.aiVariationDesc">같은 문장이라도 AI는 다른 표정, 다른 색상, 다른 소품, 다른 계절 버전을 생성합니다. 매일 조금씩 새로운 경험입니다.</p>
+            <div class="feature__tags">
+              <span data-i18n="features.tagExpression">표정</span>
+              <span data-i18n="features.tagColor">색상</span>
+              <span data-i18n="features.tagProp">소품</span>
+              <span data-i18n="features.tagSeason">계절</span>
+            </div>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__index">05</span>
+            <h3>Widget</h3>
+            <p data-i18n="features.widgetDesc">홈 화면에서도 오늘의 캐릭터와 오늘의 한 문장을 바로 만날 수 있습니다.</p>
+            <div class="feature__widget">
+              <img src="assets/char-cloudwhale.png" data-i18n-attr="alt:features.altCloudwhale" alt="위젯 속 구름 고래" />
+              <div><span>Today</span><strong>Smile first.</strong></div>
+            </div>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__index">06</span>
+            <h3>Share Card</h3>
+            <p data-i18n="features.shareCardDesc">오늘의 픽셀 친구를 SNS 카드 형태로 저장하고 공유할 수 있습니다.</p>
+            <div class="share-card">
+              <div class="share-card__dots" aria-hidden="true"></div>
+              <span class="share-card__emoji">🐸</span>
+              <span class="share-card__today">Today</span>
+              <strong class="share-card__msg">Smile first.</strong>
+              <div class="share-card__dots" aria-hidden="true"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Gallery ===== -->
+    <section class="section section--gallery" id="gallery">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="gallery.eyebrow">AI 이미지 생성</span>
+          <h2 data-i18n="gallery.title">Gemini Nano Banana가 그리는 픽셀 세계</h2>
+          <p class="section__sub" data-i18n="gallery.sub">캐릭터부터 사물, 자연, 감정까지 — AI가 매일 새로운 스타일을 생성합니다.</p>
+        </div>
+        <div class="gallery">
+          <div class="gallery__card reveal">
+            <div class="gallery__img"><img src="assets/hero-dragon.png" data-i18n-attr="alt:gallery.altDragon" alt="아기 용 픽셀 캐릭터" /></div>
+            <h3>Pixel Character</h3>
+            <p>Tiny Wizard · Small Fox · Baby Dragon · Space Cat · Robot Gardener</p>
+          </div>
+          <div class="gallery__card reveal">
+            <div class="gallery__img"><img src="assets/obj-items.png" data-i18n-attr="alt:gallery.altItems" alt="매직 포션과 행운의 동전 픽셀 오브젝트" /></div>
+            <h3>Pixel Object</h3>
+            <p>Magic Potion · Wooden Sword · Lucky Coin · Ancient Book · Tiny House</p>
+          </div>
+          <div class="gallery__card reveal">
+            <div class="gallery__img"><img src="assets/obj-nature.png" data-i18n-attr="alt:gallery.altNature" alt="꽃과 버섯 픽셀 자연물" /></div>
+            <h3>Pixel Nature</h3>
+            <p>Flower · Tree · Mushroom · Mountain · Island</p>
+          </div>
+          <div class="gallery__card reveal">
+            <div class="gallery__img"><img src="assets/char-robot.png" data-i18n-attr="alt:gallery.altRobot" alt="용기를 건네는 로봇 가드너" /></div>
+            <h3>Pixel Emotion</h3>
+            <p>Joy · Hope · Courage · Calm · Curiosity</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Philosophy ===== -->
+    <section class="section section--philosophy">
+      <div class="container philosophy reveal">
+        <span class="eyebrow eyebrow--light" data-i18n="philosophy.eyebrow">디자인 철학</span>
+        <h2 class="philosophy__title" data-i18n="philosophy.title" data-i18n-html>복잡한 기능보다<br /><span class="accent">감정 경험</span>을 디자인합니다.</h2>
+        <p class="philosophy__desc" data-i18n="philosophy.desc">
+          우리는 사용자가 앱을 오래 사용하는 것이 아니라, 매일 다시 찾아오는 경험을 만들고 싶습니다.
+        </p>
+        <p class="philosophy__big" data-i18n="philosophy.big">하루 10초. 그것이면 충분합니다.</p>
+      </div>
+    </section>
+
+    <!-- ===== Audience ===== -->
+    <section class="section" id="audience">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="audience.eyebrow">타겟 사용자</span>
+          <h2 data-i18n="audience.title">이런 분들을 위해 만들었어요</h2>
+        </div>
+        <div class="audience">
+          <article class="audience__card reveal">
+            <h3 data-i18n="audience.card1Title">따뜻한 감성을 원하는 사람</h3>
+            <p data-i18n="audience.card1Desc">AI 시대에도 사람의 온기와 감성을 그리워하는 분들을 위해.</p>
+          </article>
+          <article class="audience__card reveal">
+            <h3 data-i18n="audience.card2Title">게임과 픽셀아트를 좋아하는 사람</h3>
+            <p data-i18n="audience.card2Desc">이런 감성을 사랑하는 분들에게.</p>
+            <div class="audience__tags"><span>Pokemon</span><span>Stardew Valley</span><span>Animal Crossing</span><span>Terraria</span></div>
+          </article>
+          <article class="audience__card reveal">
+            <h3 data-i18n="audience.card3Title">기분 좋게 하루를 시작하고 싶은 직장인</h3>
+            <p data-i18n="audience.card3Desc">복잡한 생산성 앱보다 간단한 루틴을 선호하는 분들에게.</p>
+          </article>
+          <article class="audience__card reveal">
+            <h3 data-i18n="audience.card4Title">감성 디자인을 좋아하는 사람</h3>
+            <p data-i18n="audience.card4Desc">미니멀한 서비스를 선호하는 분들에게.</p>
+            <div class="audience__tags"><span>Notion</span><span>Bear</span><span>Are.na</span><span>Pinterest</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Differentiation ===== -->
+    <section class="section section--diff">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="diff.eyebrow">차별화 포인트</span>
+          <h2 data-i18n="diff.title">기존 명언 앱과 무엇이 다를까요?</h2>
+        </div>
+        <div class="compare reveal">
+          <div class="compare__col compare__col--old">
+            <h3 data-i18n="diff.oldTitle">기존 명언 앱</h3>
+            <ul>
+              <li data-i18n="diff.old1">텍스트 중심</li>
+              <li data-i18n="diff.old2">고정 이미지</li>
+              <li data-i18n="diff.old3">단순 명언</li>
+              <li data-i18n="diff.old4">이미지 없음</li>
+              <li data-i18n="diff.old5">읽고 끝</li>
+            </ul>
+          </div>
+          <div class="compare__vs" aria-hidden="true">VS</div>
+          <div class="compare__col compare__col--new">
+            <h3>Pixel Grug</h3>
+            <ul>
+              <li data-i18n="diff.new1">AI 생성 픽셀 캐릭터 중심</li>
+              <li data-i18n="diff.new2">매일 새로운 AI 이미지</li>
+              <li data-i18n="diff.new3">이야기와 캐릭터가 있는 경험</li>
+              <li data-i18n="diff.new4">Pixel Collection 제공</li>
+              <li data-i18n="diff.new5">수집하는 재미</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Tech Stack ===== -->
+    <section class="section" id="tech">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="tech.eyebrow">기술 스택</span>
+          <h2 data-i18n="tech.title">탄탄한 기술 위에 세운 감성</h2>
+        </div>
+        <div class="tech">
+          <div class="tech__col reveal">
+            <h3>Front-end</h3>
+            <ul>
+              <li>React Native</li>
+              <li>Expo</li>
+              <li>React Native Skia <em data-i18n="tech.feAnim">(애니메이션)</em></li>
+              <li>Native Widget</li>
+            </ul>
+          </div>
+          <div class="tech__col reveal">
+            <h3>AI</h3>
+            <ul>
+              <li>Gemini Nano Banana Image API</li>
+              <li>Gemini 2.5 Flash <em data-i18n="tech.aiSentence">(문장 생성)</em></li>
+              <li>Imagen <em data-i18n="tech.aiQuality">(향후 고품질 옵션)</em></li>
+            </ul>
+          </div>
+          <div class="tech__col reveal">
+            <h3>Backend</h3>
+            <ul>
+              <li>Firebase Authentication <em data-i18n="tech.beAuth">(선택)</em></li>
+              <li>Firestore</li>
+              <li>Cloud Functions</li>
+              <li>Cloud Scheduler <em data-i18n="tech.beScheduler">(일일 콘텐츠 생성)</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Vision / Final CTA ===== -->
+    <section class="section section--vision" id="vision">
+      <div class="container vision reveal">
+        <span class="eyebrow eyebrow--light" data-i18n="vision.eyebrow">장기 비전</span>
+        <blockquote class="vision__quote" data-i18n="vision.quote" data-i18n-html>
+          "Duolingo가 학습 습관을 만들었다면,<br />Pixel Grug는 <span class="accent">작은 행복의 습관</span>을 만든다."
+        </blockquote>
+        <p class="vision__desc" data-i18n="vision.desc" data-i18n-html>
+          장기적으로 캐릭터는 사용자의 감정과 취향을 반영해 성장하는 <strong>AI Companion</strong>으로 확장됩니다.
+          생성형 AI + 감성 UX + 수집형 콘텐츠를 결합한, 나만의 작은 세계를 만들어 갑니다.
+        </p>
+        <div class="vision__actions">
+          <a href="#top" class="btn btn--primary btn--lg" data-i18n="vision.cta">오늘의 픽셀 친구 만나기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo-mark" aria-hidden="true">▚</span>
+        <div>
+          <strong>Pixel Grug</strong>
+          <p data-i18n="footer.tagline">Tiny Pixel Stories for Better Days.</p>
+        </div>
+      </div>
+      <nav class="footer__links" data-i18n-attr="aria-label:a11y.navFooter" aria-label="푸터 메뉴">
+        <a href="#about" data-i18n="nav.about">소개</a>
+        <a href="#features" data-i18n="nav.features">주요 기능</a>
+        <a href="#gallery" data-i18n="nav.gallery">픽셀 갤러리</a>
+        <a href="#tech" data-i18n="nav.tech">기술 스택</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p data-i18n="footer.copyright">&copy; 2026 Pixel Grug. 하루 10초의 작은 행복.</p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
